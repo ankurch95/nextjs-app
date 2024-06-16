@@ -4,8 +4,8 @@ import { IoLogOutOutline } from "react-icons/io5";
 
 type Props = {
     userEmail: string,
-    handleShow: () => void,
-    onLogout    : () => void
+    handleShow?: () => void,
+    onLogout?    : () => void
 }
 export default function TopNavbar({ userEmail, handleShow,onLogout }: Props) {
     return (
@@ -13,9 +13,9 @@ export default function TopNavbar({ userEmail, handleShow,onLogout }: Props) {
             <Container >
                 {/* <Navbar.Brand onClick={handleShow} href="#home" className="ms-12">{<RxHamburgerMenu />}</Navbar.Brand> */}
                 <Nav className="me-auto">
-                    <Nav.Link href="#home" className="text-black text-lg">Paytm</Nav.Link>
-                    {/* <Nav.Link href="#features" className="text-black text-lg">Features</Nav.Link>
-                    <Nav.Link href="#pricing" className="text-black text-lg">Pricing</Nav.Link> */}
+                    <Nav.Link href="/profile" className=" text-lg">Paytm</Nav.Link>
+                     <Nav.Link href="/cars24" className=" text-lg">Cars 24</Nav.Link>
+                   {/* <Nav.Link href="#pricing" className="text-black text-lg">Pricing</Nav.Link> */}
                 </Nav>
             </Container>
 
