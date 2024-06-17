@@ -56,3 +56,34 @@ export const buyMenu = [{
     imagePath: "https://assetscdn1.paytm.com/images/catalog/view_item/730001/1626450848003.png",
     title: "Invest in Stocks"
 }]
+
+
+export const carouselItems=
+{
+  "items": {
+    "bootstrap": [
+      {
+        "id": 1,
+        "title": "Photography",
+        "body": "Bootstrap Carousel Example",
+        "imageUrl": "https://assets.cars24.com/production/c2b-website/240614174751/js/d8e03eca1c5e5bcf4363a9191a0a406b.webp",
+        "docs": "https://getbootstrap.com/docs/4.0/components/carousel/"
+      },
+      {
+        "id": 2,
+        "title": "City Views",
+        "body": "Bootstrap Carousel Example",
+        "imageUrl": "https://assets.cars24.com/production/c2b-website/240614174751/js/b826677e31b9d490bc0e9ff5b810e87a.png",
+        "docs": "https://getbootstrap.com/docs/4.0/components/carousel/"
+      },
+      {
+        "id": 3,
+        "title": "Wild Life",
+        "body": "Bootstrap Carousel Example",
+        "imageUrl": "https://assets.cars24.com/production/c2b-website/240614174751/js/add3515cee57c3f3d36023ce13b5c8e2.png",
+        "docs": "https://getbootstrap.com/docs/4.0/components/carousel/"
+      }
+    ]
+  }
+}
+
