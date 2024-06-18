@@ -1,6 +1,7 @@
 .customDropdown {
     position: relative;
     box-shadow: 0svb;
+    flex-direction: row;
   }
   
   .customDropdownMenu {
