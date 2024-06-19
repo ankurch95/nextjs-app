@@ -1,5 +1,7 @@
 "use client"
 import BootstrapCarousel from "@/component/bootstrapCarousel";
+import SyncfusionChart from "@/component/charts/chart";
+import SpineChart from "@/component/charts/spineChart";
 import CustomDropdown from "@/component/customNavDropdown";
 import TopNavbar from "@/component/navbar";
 import { buyMenu } from "@/helpers/jsonData";
@@ -124,6 +126,15 @@ export default function Cars24() {
 
             </div>
 
+            <div className="bg-white flex-col">
+                <div>
+                    <SyncfusionChart />
+                </div>
+                {/* <div>
+                    <SpineChart />
+                </div>
+                 */}
+            </div>
         </div>
     )
 }
