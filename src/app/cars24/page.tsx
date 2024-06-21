@@ -1,6 +1,8 @@
 "use client"
 import BootstrapCarousel from "@/component/bootstrapCarousel";
+import BasicBars from "@/component/charts/barChart";
 import SyncfusionChart from "@/component/charts/chart";
+import BasicLineChart from "@/component/charts/lineChart";
 import SpineChart from "@/component/charts/spineChart";
 import CustomDropdown from "@/component/customNavDropdown";
 import TopNavbar from "@/component/navbar";
@@ -152,6 +154,9 @@ export default function Cars24() {
                     <SpineChart />
                 </div>
                  */}
+
+                 <BasicLineChart/>
+                 <BasicBars/>
             </div>
 
 
