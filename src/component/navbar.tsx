@@ -15,7 +15,7 @@ export default function TopNavbar({ userEmail, handleShow,onLogout }: Props) {
                 <Nav className="me-auto">
                     <Nav.Link href="/profile" className=" text-lg">Paytm</Nav.Link>
                      <Nav.Link href="/cars24" className=" text-lg">Cars 24</Nav.Link>
-                   {/* <Nav.Link href="#pricing" className="text-black text-lg">Pricing</Nav.Link> */}
+                   <Nav.Link href="/payment" className="text-lg">Payment</Nav.Link>
                 </Nav>
             </Container>
 
