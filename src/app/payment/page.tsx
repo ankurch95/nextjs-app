@@ -4,6 +4,7 @@ import Script from 'next/script';
 import Button from '@/component/button';
 import InputWithLabel from '@/component/inputWithLabel';
 import Card from '@/component/card';
+import TopNavbar from '@/component/navbar';
 
 
 function Payment() {
@@ -80,6 +81,11 @@ function Payment() {
 
     return (
         <>
+
+            <div>
+                <TopNavbar userEmail={''} />
+            </div>
+
             <Script
                 id="razorpay-checkout-js"
                 src="https://checkout.razorpay.com/v1/checkout.js"

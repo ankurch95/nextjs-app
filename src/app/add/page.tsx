@@ -1,14 +1,18 @@
-// app/add/page.js
-
 "use client"
+import Button from "@/component/button";
+import Card from "@/component/card";
+import InputWithLabel from "@/component/inputWithLabel";
+import TopNavbar from "@/component/navbar";
 import axios from "axios";
 import { useState } from "react";
 
 export default function Add() {
+    const [notificationTitle, setNotificationTitle] = useState('');
+    const [notificationDescription, setNotificationDescription] = useState('');
+
 
     const handleSubmit = (e: { preventDefault: () => void; target: { value: any; }[]; }) => {
         e.preventDefault();
-
         const name = e.target[0].value;
         const message = e.target[1].value;
 
@@ -22,71 +26,43 @@ export default function Add() {
 
 
     return (
-        <main className="flex p-10 justify-center gap-6">
-            <div className="w-full max-w-xs">
-
-                <h2 className="text-center my-5 text-2xl">
-                    Send New Notification
-                </h2>
-                <form className="bg-white shadow-md 
-                                 rounded px-8 pt-6 
-                                 pb-8 mb-4"
-                    onSubmit={handleSubmit}>
-                    <div className="mb-4">
-                        <label
-                            className="block text-gray-700 
-                                       text-sm font-bold mb-2"
-                            htmlFor="username"
-                        >
-                            Notification Title
-                        </label>
-                        <input
-                            className="shadow appearance-none 
-                                       border rounded
-                                        w-full py-2 px-3 
-                                       text-gray-700 leading-tight 
-                                        focus:outline-none 
-                                       focus:shadow-outline"
-                            type="text"
-                            placeholder="Title"
-                        />
-                    </div>
-                    <div className="mb-6">
-                        <label
-                            className="block text-gray-700 
-                                       text-sm font-bold mb-2"
-                        >
-                            Notification Message
-                        </label>
-                        <input
-                            className="shadow appearance-none 
-                                       border rounded w-full
-                                        py-2 px-3 text-gray-700 
-                                       leading-tight 
-                                       focus:outline-none
-                                         focus:shadow-outline"
-                            type="test"
-                            placeholder="Message"
-                        />
-
-                    </div>
-                    <div className="flex items-center 
-                                    justify-between">
-                        <button className="bg-blue-500 
-                                              hover:bg-blue-700 
-                                           text-white
-                                               font-bold py-2 px-4 
-                                              rounded 
-                                           focus:outline-none
-                                                focus:shadow-outline"
-                            type="submit"
-                        >
-                            Send
-                        </button>
-
-                    </div>
-                </form>
+        <div className="min-h-screen justify-center items-center">
+            <div>
+                <TopNavbar userEmail={""} />
             </div>
-        </main>
+
+            <div className="min-h-screen flex justify-center items-center bg-slate-100">
+                <Card>
+                    <h1 className="text-2xl font-bold text-center">Send Notification</h1>
+                    <form
+                        className="flex flex-col gap-6 w-full sm:w-80"
+                        onSubmit={handleSubmit}>
+                        <div className="space-y-1">
+                            <InputWithLabel
+                                label='Notification Title'
+                                placeholder='Enter Title'
+                                value={notificationTitle}
+                                type='text'
+                                id='name'
+                                onChange={(e) => setNotificationTitle(e.target.value)}
+                            />
+                        </div>
+
+                        <div className="space-y-1">
+                            <InputWithLabel
+                                label='Notification Description'
+                                placeholder='Enter Description'
+                                value={notificationDescription}
+                                type='text'
+                                id='name'
+                                onChange={(e) => setNotificationDescription(e.target.value)}
+                            />
+                        </div>
+                        <Button title='Send Notification' />
+                    </form>
+                </Card>
+            </div>
+
+        </div>
     );
 }

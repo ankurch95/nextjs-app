@@ -1,8 +1,5 @@
 'use client'
-import axios from "axios"
-import { useRouter } from "next/navigation"
 import { useEffect, useState } from "react"
-import toast from "react-hot-toast"
 import Sidebar from "@/component/sidebar"
 import TopNavbar from "@/component/navbar"
 import Image from "next/image"
@@ -15,65 +12,21 @@ import { Card } from "react-bootstrap"
 
 
 export default function Profile() {
-    const router = useRouter()
-    const [buttonDisabled, setButtonDisabled] = useState<boolean>(true)
-    const [userEmail, setUserEmail] = useState<string>('')
-    const [showTopBarIcon, setShowTopBarIcon] = useState<boolean>(true)
     const [show, setShow] = useState<boolean>(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    useEffect(() => {
-        getUserData()
-    }, [])
 
-
-    const getUserData = async () => {
-        try {
-            const response = await axios.get('/api/users/user')
-            if (response.data) {
-                setUserEmail(response.data.data.email)
-            }
-        } catch (error) {
-            toast.error('Something went wrong.', { duration: 2000, position: 'bottom-right' })
-        }
-    }
-
-
-    const onLogout = async () => {
-        try {
-            setButtonDisabled(!buttonDisabled)
-            const response = await axios.get('/api/users/logout')
-            setButtonDisabled(!buttonDisabled)
-            console.log(response)
-            toast.success('User logged out successfully', { duration: 2000, position: 'bottom-right' })
-
-            router.replace('/login')
-        } catch (error) {
-            toast.error('Something went wrong.', { duration: 2000, position: 'bottom-right' })
-            setButtonDisabled(!buttonDisabled)
-        }
-
-    }
 
     return (
         <div className="min-h-screen bg-white">
-
-            <div>
-                <TopNavbar
-                    userEmail={userEmail}
-                    handleShow={handleShow}
-                    onLogout={onLogout} />
-            </div>
+            <TopNavbar handleShow={handleShow} />
 
             <Sidebar
                 show={show}
                 handleClose={handleClose} />
 
             <div className="min-h-screen grid grid-cols-2 divide-x">
-
-
                 <div className="min-h-screen bg-slate-100 flex justify-center items-center px-32" >
                     <div>
                         <Image src=
@@ -263,7 +216,7 @@ export default function Profile() {
                             unoptimized
                             width={200}
                             height={100}
-                           className="mb-10"
+                            className="mb-10"
                         />
                         <div className="text-5xl font-semibold font-sans mb-3">Insurance made easy.</div>
                         <div className="text-xl font-sans">Buying insurance does not have to be tedious, time-consuming & confusing. Paytm Insurance removes the worry of getting insured by making it simple, convenient & easy-to-understand.</div>

@@ -1,4 +1,6 @@
 'use client'
+import Card from "@/component/card"
+import InputWithLabel from "@/component/inputWithLabel"
 import axios from "axios"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -25,46 +27,46 @@ export default function Login() {
     }, [user.email])
 
     const onSignIn = async () => {
-        
+
         try {
             setLoading(true)
             const res = await axios.post('/api/users/login', user)
             console.log(res);
-            toast.success('User logged in successfully', { duration: 2000,position: 'bottom-right' })
+            toast.success('User logged in successfully', { duration: 2000, position: 'bottom-right' })
             router.replace('/profile')
         } catch (error) {
-            toast.error('Invalid credentials', { duration: 2000,position: 'bottom-right' })
+            toast.error('Invalid credentials', { duration: 2000, position: 'bottom-right' })
             setLoading(false)
         } finally {
             setLoading(false)
-        } 
-    
+        }
+
     }
 
     return (
         <div className=" min-h-screen items-center justify-center flex-col flex">
-            <div className="border border-white bg-white p-10 px-15 rounded-lg shadow-lg flex-col flex">
+            <Card>
                 <h1 className="text-2xl font-bold text-center">Sign In</h1>
                 <br />
+                <div className="space-y-1">
+                    <InputWithLabel
+                        label='Email'
+                        placeholder='Enter Email'
+                        value={user.email}
+                        type='text'
+                        id='Email'
+                        onChange={(e) => setUser({ ...user, email: e.target.value })} />
+                </div>
 
-                <label htmlFor="email" className="font-semibold">Email</label>
-                <input
-                    className="border border-gray-300 p-2 rounded-lg mt-1"
-                    id="email"
-                    value={user.email}
-                    type="text"
-                    placeholder="Email"
-                    onChange={(e) => setUser({ ...user, email: e.target.value })} />
-                <br />
-
-                <label htmlFor="password" className="font-semibold">Password</label>
-                <input
-                    className="border border-gray-300 p-2 rounded-lg mt-1"
-                    id="password"
-                    value={user.password}
-                    type={user.passwordVisibility ? "text" : "password"}
-                    placeholder="Password"
-                    onChange={(e) => setUser({ ...user, password: e.target.value })} />
+                <div className="mt-2">
+                    <InputWithLabel
+                        label='Password'
+                        id='Password'
+                        value={user.password}
+                        type={user.passwordVisibility ? "text" : "password"}
+                        placeholder="Enter Password"
+                        onChange={(e) => setUser({ ...user, password: e.target.value })} />
+                </div>
 
                 <div className="flex items-center content-center mt-2">
                     <input
@@ -82,11 +84,12 @@ export default function Login() {
                 <button
                     onClick={onSignIn}
                     className=" rounded-lg bg-blue-500 p-2 text-white flex  items-center justify-center">
-                   {buttonDisabled ? "Sign In" : "Loading..."}
+                    {buttonDisabled ? "Sign In" : "Loading..."}
                 </button>
                 <br />
                 <div>Not having an account?<Link href="/signup"> Sign Up</Link></div>
-            </div>
+
+            </Card>
         </div>
     )
 }

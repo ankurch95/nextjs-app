@@ -28,7 +28,7 @@ socketIO.on('connection', (socket) => {
     });
 });
 
-app.post("/api", (req) => {
+app.post("/api", (req,res) => {
     const { name, message } = req.body;
     socketIO.emit('notification', { name, message });
     console.log(name, message);

@@ -34,7 +34,7 @@ export default function Cars24() {
 
     return (
         <div className="min-h-screen bg-white">
-
+            <TopNavbar userEmail={""} />
             <Navbar>
                 <Container>
                     <Navbar.Brand href="#home">Cars 24</Navbar.Brand>
@@ -48,11 +48,8 @@ export default function Cars24() {
             </Navbar>
 
             <div className="min-h-96 flex bg-black flex-col">
-
                 <BootstrapCarousel />
-
                 <div className="absolute bottom-72 left-28 text-xl flex flex-row">
-
                     <Card>
                         <Image src="https://fastly-production.24c.in/cars24/brand/maruti-suzuki.png"
                             alt="External Image"
@@ -62,8 +59,6 @@ export default function Cars24() {
                             className="py-3 px-2"
                         />
                     </Card>
-
-
                     <Card className="ml-5">
                         <Image src="https://fastly-production.24c.in/cars24/brand/hyundai.png"
                             alt="External Image"
@@ -73,7 +68,6 @@ export default function Cars24() {
                             className="py-3 px-2"
                         />
                     </Card>
-
                     <Card className="ml-5">
                         <Image src="https://fastly-production.24c.in/cars24/brand/honda.png"
                             alt="External Image"
@@ -83,8 +77,6 @@ export default function Cars24() {
                             className="py-3 px-2"
                         />
                     </Card>
-
-
                     <Card className="ml-5">
                         <Image src="https://fastly-production.24c.in/cars24/brand/renault.png"
                             alt="External Image"
@@ -155,8 +147,8 @@ export default function Cars24() {
                 </div>
                  */}
 
-                 <BasicLineChart/>
-                 <BasicBars/>
+                <BasicLineChart />
+                <BasicBars />
             </div>
 
 
@@ -172,8 +164,8 @@ export default function Cars24() {
                                 id="toast-message-cta"
                                 className="w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-400" role="alert">
                                 <div className="flex">
-                                    <img 
-                                    className="w-8 h-8 rounded-full"
+                                    <img
+                                        className="w-8 h-8 rounded-full"
                                         src="notification.png" alt="Jese Leos image" />
                                     <div className="ms-3 text-sm font-normal">
                                         <span className="mb-1 text-sm font-semiboldtext-gray-900 dark:text-white">
